@@ -1,0 +1,94 @@
+-- Insertion des auteurs
+INSERT INTO Auteur (nom, date_start, date_end, photo) VALUES 
+('Nietzsche', '1844-10-15', '1900-08-25', 'nietzsche.jpg'),
+('Schopenhauer', '1788-02-22', '1860-09-21', 'schopenhauer.jpg'),
+('Marc-Aurèle', '121-04-26', '180-03-17', 'marc_aurele.jpg'),
+('Pascal', '1623-06-19', '1662-08-19', 'pascal.jpg'),
+('Platon', '-428-04-01', '-348-04-07', 'platon.jpg'),
+('Aristote', '-384-04-01', '-322-04-07', 'aristote.jpg'),
+('Epictète', '50-01-01', '135-01-01', 'epictete.jpg'),
+('Spinoza', '1632-11-24', '1677-02-21', 'spinoza.jpg'),
+('Socrate', '-469-02-15', '-399-03-10', 'socrate.jpg'),
+('Descartes', '1596-03-31', '1650-02-11', 'descartes.jpg'),
+('Kant', '1724-04-22', '1804-02-12', 'kant.jpg'),
+('Rousseau', '1712-06-28', '1778-07-02', 'rousseau.jpg');
+
+
+-- Insertion des catégories
+INSERT INTO categorie (nom) VALUES 
+('Philosophie'),
+('Littérature');
+
+-- Insertion des nationalités
+INSERT INTO nationalité (nom) VALUES 
+('Allemande'),
+('Romaine'),
+('Française'),
+('Grecque');
+
+-- Insertion des citations avec les années de parution
+INSERT INTO Citations (citation, année, id_auteur) VALUES 
+('Ce qui ne me tue pas me rend plus fort.', '1889-01-01', 1),
+('Dieu est mort.', '1882-01-01', 1),
+('Devient ce que tu es.', '1883-01-01', 1),
+("L'homme est quelque chose qui doit être dépassé.", '1886-01-01', 1),
+('La vie est une affaire trop sérieuse pour être confiée à des adultes.', '1846-01-01', 2),
+("Le bonheur n'est pas chose aisée : il est très difficile de le trouver en nous, il est impossible de le trouver ailleurs.", '1851-01-01', 2),
+('La vie est une longue préparation à être un jour un homme vraiment utile.', '1851-01-01', 2),
+('La vie est une lutte et une marche.', '180-03-17', 3),
+("Ne te laisse pas emporter par le passé, ne te laisse pas distraire par l'avenir ; concentre ton esprit sur le moment présent.", NULL, 3),
+('Tout est éphémère - ce qui utilise bien le temps est éternel.', NULL, 3),
+("Le silence éternel de ces espaces infinis m'effraie.", NULL, 4),
+('Le cœur a ses raisons que la raison ne connaît point.', NULL, 4),
+("L'homme n'est qu''un roseau, le plus faible de la nature, mais c'est un roseau pensant.", NULL, 4),
+('Connais-toi toi-même.', NULL, 9),
+('Je pense, donc je suis.', '1637-01-01', 10),
+('Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle.', NULL, 11),
+("L'homme est né libre, et partout il est dans les fers.", '1762-01-01', 12),
+("La raison est la seule chose qui rend l'homme libre.", NULL, 11),
+('Le doute est le commencement de la sagesse.', NULL, 13),
+("L'éducation consiste à apprendre à se passer des choses superflues.", NULL, 12);
+
+-- Insertion des catégories de citations
+INSERT INTO categorie_citation (id_citations, id_categorie) VALUES 
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 2),
+(6, 2),
+(7, 2),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(19, 1),
+(20, 1),
+(21, 1),
+(22, 1),
+(23, 1),
+(24, 1),
+(25, 1);
+
+-- Insertion des nationalités des auteurs
+INSERT INTO avoir (id_auteur, id_nationalité) VALUES 
+(1, 1),
+(2, 1),
+(3, 2),
+(4, 3),
+(5, 3),
+(6, 3),
+(7, 3),
+(8, 1),
+(9, 4),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1);
