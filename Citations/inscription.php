@@ -20,7 +20,7 @@ if (isset($_POST['submit_login_inscription'])) {
         // On peut maintenant verifier que les champs sont remplis correctements.
 
 
-        if (empty($mail) || filter_var($mail, FILTER_VALIDATE_EMAIL)) { // On applique un filtre avec filter_var qui va valider si l'email est au bon format
+        if (empty($mail) || !filter_var($mail, FILTER_VALIDATE_EMAIL)) { // On applique un filtre avec filter_var qui va valider si l'email est au bon format
             // On stock l'erreur mail dans le tableau créer plus tot et nous lui indiquons une clé (['email']) afin de pouvoir l'afficher plus tard.
             $errors['email'] = "Le champs e-mail doit être renseigner avec un e-mail valide.";
         }
@@ -68,8 +68,15 @@ if (isset($_POST['submit_login_inscription'])) {
                 $salt = "mx1"; // Nous créons un grains de sel a rajouter au mot de pasee de l'utilisteur, afin de pouvoir controler les modifications qui pourrait être apporter a notre BDD sans notre accord.
 
                 $pwd = password_hash($pwd, PASSWORD_BCRYPT) . $salt; // Nous hashons le mot de passe et ajoutons le grain de sel avant l'insertion.
-                $requete = $dbh->prepare("INSERT INTO utilisateur (nom, prenom, mail, motdepasse, nom_compte) VALUES ($nom, $prenom, $mail, $pwd, $pseudo)");
-                $requete->execute();
+                $requete = $dbh->prepare("INSERT INTO utilisateur (nom, prenom, mail, motdepasse, nom_compte, id_droit) VALUES (:nom, :prenom, :mail, :pwd, :pseudo, :id_droit)");
+                $requete->execute([
+                    'nom' => $nom,
+                    'prenom' => $prenom,
+                    'mail' => $mail,
+                    'pwd' => $pwd,
+                    'pseudo' => $pseudo,
+                    'id_droit' => 2
+                ]);
 
                 if ($dbh->lastInsertID()) { // Si la base de donnée nous retourne bien un id (Le dernier créer) donc le création du compte a bien été effectuer.
 
@@ -83,3 +90,5 @@ if (isset($_POST['submit_login_inscription'])) {
         }
     }
 }
+
+require 'templates/inscription.html.php';

@@ -13,19 +13,25 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-4">
                 <h1>Connexion</h1>
-                <form action="verif_form.php" method="POST">
+                <form action="connexion.php" method="POST">
                     <label for="email" class="form-label">Email:</label>
-                    <input required type="email" class="form-control" name="email" id="email" placeholder="MarcAurele@gmail.ro">
+                    <input required type="email" class="form-control" name="email" id="email" placeholder="Marc-Aurèle@gmail.ro">
+                    <?php if (isset($errors['email'])) : ?>
+                        <span><?= $errors['email'] ?></span>
+                    <?php endif ?>
                     <br>
                     <label for="password" class="form-label">Mot de passe:</label>
                     <input required type="password" class="form-control" name="password" id="password">
+                    <?php if (isset($errors['password'])) : ?>
+                        <span><?= $errors['password'] ?></span>
+                    <?php endif ?>
                     <br>
-                    <button type="submit" class="btn btn-primary" name="submit_login_connex">
+                    <button type="submit" class="btn btn-primary" name="submit_login_connex">Connexion</button>
+                    <a class="btn btn-primary" href="inscription.php">Vous n'avez pas de compte ?</a>
                 </form>
-                <br>
-                <a href="inscription.php">Vous n'avez pas de compte ?</a>
-
             </div>
+            <br>
+
         </div>
     </div>
 
