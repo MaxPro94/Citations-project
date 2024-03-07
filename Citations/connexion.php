@@ -31,8 +31,10 @@ if (isset($_POST['submit_login_connex'])) {
         $email = $_POST['email'];
         $pwd = $_POST['password'];
 
-        $requete = $dbh->prepare("SELECT motdepasse, FROM utilisateur WHERE mail = :email");
-        $requete->execute([$email]);
+        $requete = $dbh->prepare("SELECT motdepasse FROM utilisateur WHERE mail = :email");
+        $requete->execute([
+            'email' => $email
+        ]);
         $utilisateur = $requete->fetch();
 
         if ($utilisateur) { // Si la variable utilisateur est true (elle est true par si elle possède une valeur, si elle n'est pas vide.) 
@@ -41,7 +43,7 @@ if (isset($_POST['submit_login_connex'])) {
                 $_SESSION['user_id'] = $utilisteur['id_utilisateur'];
                 $_SESSION['name'] = $utilisteur['nom_compte'];
 
-                header('Location: home.php');
+                header('Location: /home.php');
             }
         }
     }
