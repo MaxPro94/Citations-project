@@ -28,23 +28,30 @@ if (isset($_POST['submit_login_connex'])) {
 
     // Si la variable est vide.
     if (empty($errors)) {
-        $email = $_POST['email'];
-        $pwd = $_POST['password'];
 
-        $requete = $dbh->prepare("SELECT motdepasse FROM utilisateur WHERE mail = :email");
+        $salt = "mx1";
+        $email = $_POST['email'];
+        $pwd = $_POST['password'] . $salt;
+
+        $requete = $dbh->prepare("SELECT * FROM utilisateur WHERE mail = :email");
         $requete->execute([
             'email' => $email
         ]);
         $utilisateur = $requete->fetch();
 
-        if ($utilisateur) { // Si la variable utilisateur est true (elle est true par si elle possède une valeur, si elle n'est pas vide.) 
-            if (password_verify($pwd, $utilisateur['motdepasse'])) {
-                session_start();
-                $_SESSION['user_id'] = $utilisteur['id_utilisateur'];
-                $_SESSION['name'] = $utilisteur['nom_compte'];
+        // Si la variable utilisateur est true (elle est true par si elle possède une valeur, si elle n'est pas vide.) 
+        if (password_verify($pwd, $utilisateur['motdepasse'])) {
 
-                header('Location: /home.php');
-            }
+            session_start();
+
+            $_SESSION['user_id'] = $utilisateur['id_utilisateur'];
+            $_SESSION['name'] = $utilisateur['nom_compte'];
+
+            header('Location: home.php');
+            exit;
+        } else {
+            $errors['email'] = 'E-mail ou le mot de passe invalide';
+            $errors['password'] = 'E-mail ou le mot de passe invalide';
         }
     }
 }

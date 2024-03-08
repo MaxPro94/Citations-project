@@ -67,7 +67,7 @@ if (isset($_POST['submit_login_inscription'])) {
                 // Un fois la verification de l'existence du mot de passe en BDD nous pouvons passer a l'insertion des données.
                 $salt = "mx1"; // Nous créons un grains de sel a rajouter au mot de pasee de l'utilisteur, afin de pouvoir controler les modifications qui pourrait être apporter a notre BDD sans notre accord.
 
-                $pwd = password_hash($pwd, PASSWORD_BCRYPT) . $salt; // Nous hashons le mot de passe et ajoutons le grain de sel avant l'insertion.
+                $pwd = password_hash($pwd . $salt, PASSWORD_BCRYPT); // Nous hashons le mot de passe et ajoutons le grain de sel avant l'insertion.
                 $requete = $dbh->prepare("INSERT INTO utilisateur (nom, prenom, mail, motdepasse, nom_compte, id_droit) VALUES (:nom, :prenom, :mail, :pwd, :pseudo, :id_droit)");
                 $requete->execute([
                     'nom' => $nom,
@@ -75,7 +75,7 @@ if (isset($_POST['submit_login_inscription'])) {
                     'mail' => $mail,
                     'pwd' => $pwd,
                     'pseudo' => $pseudo,
-                    'id_droit' => 2
+                    'id_droit' => 1
                 ]);
 
                 if ($dbh->lastInsertID()) { // Si la base de donnée nous retourne bien un id (Le dernier créer) donc le création du compte a bien été effectuer.

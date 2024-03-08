@@ -9,22 +9,31 @@
 </head>
 
 <body>
+    <?php require 'inc.top.html.php' ?>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
-                <div class="card" style="width: 25%">
+            <div class="col-12 col-md-6 my-5">
+                <div class="card">
                     <img src="<?= $photoAuteur ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><?= $nomAuteur ?></h5>
-                        <p class="card-text"><?= $naissanceAuteur . '/' . $mortAuteur ?></p>
+                        <h5 class="card-title">"<?= $citation ?>"</h5>
+                        <p class="font-weight-bold"><?= $nomAuteur ?></p>
+                        <p class="font-weight-bold"><?= $naissanceAuteur . ' ' . '/' . ' ' . $mortAuteur ?></p>
                         <a href="#" class="btn btn-primary">Description</a>
                     </div>
                 </div>
-
+                <hr>
+                <div class="progress" id="blips">
+                    <div class="progress-bar" role="progressbar">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 </body>
+<?php require 'inc.bottom.html.php' ?>
+<script src="/lib-js/progress-bar.js"></script>
 
 </html>
