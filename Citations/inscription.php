@@ -17,6 +17,8 @@ if (isset($_POST['submit_login_inscription'])) {
         $pwd = $_POST['password'];
         $pwd2 = $_POST['password2'];
 
+        var_dump($pwd, $pwd2);
+
         // On peut maintenant verifier que les champs sont remplis correctements.
 
 
@@ -38,11 +40,11 @@ if (isset($_POST['submit_login_inscription'])) {
         }
 
         if (empty($pwd)) {
-            $errors['password'] = "Veuillez renseigner un mot de passe";
+            $errors['pwd'] = "Veuillez renseigner un mot de passe";
         }
 
         if (empty($pwd2)) {
-            $errors['password2'] = "Veuillez renseigner la verification du mot de passe";
+            $errors['pwd2'] = "Veuillez renseigner la verification du mot de passe";
         }
 
         if ($pwd === $pwd2) {
@@ -50,6 +52,8 @@ if (isset($_POST['submit_login_inscription'])) {
             if (!preg_match('/[a-zA-Z0-9\!\@\$\€\*\^\§\%\&]{8,32}/', $pwd)) {
                 $errors['pwd-not-accept'] = "Le mot de passe renseigner doit contenir entre 8 et 32 carcatères avec des minuscules, des MAJUSCULES et des caractères spéciaux comme @,$,€,*,^,§,%,&.";
             }
+        } else {
+            $errors['pwd-not-identical'] = "Les mots de passes rensegnier ne sont pas identiques";
         }
 
         if (empty($errors)) { // Si le tableau des erreurs est vide:

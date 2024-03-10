@@ -12,13 +12,15 @@
 <body>
     <?php require 'templates/inc.top.html.php' ?>
     <div class="container">
-        <div class="card border-dark mb-3">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <?php foreach ($resultats as $resultat) : ?>
+            <div class="card border-dark mb-3 my-4">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    <h5 class="card-title"><?= $resultat['prenom'] . ' ' . $resultat['nom'] ?></h5>
+                    <p class="card-text"><?= $resultat['citation'] ?></p>
+                </div>
             </div>
-        </div>
+        <?php endforeach ?>
     </div>
 
 </body>

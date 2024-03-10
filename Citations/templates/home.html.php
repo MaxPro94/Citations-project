@@ -19,7 +19,7 @@
                         <h5 class="card-title">"<?= $citation ?>"</h5>
                         <p class="font-weight-bold"><?= $nomAuteur ?></p>
                         <p class="font-weight-bold"><?= $naissanceAuteur . ' ' . '/' . ' ' . $mortAuteur ?></p>
-                        <a href="#" class="btn btn-primary">Description</a>
+                        <a href="detail.php?id=<?= $id_auteur ?>" class="btn btn-primary">Détails</a>
                     </div>
                 </div>
                 <hr>

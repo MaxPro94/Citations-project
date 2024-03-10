@@ -58,11 +58,21 @@
                             <?= $errors['pwd'] ?>
                         </span>
                     <?php endif ?>
+                    <?php if (isset($errors['pwd-not-identical'])) : ?>
+                        <span class="my-1 text-danger">
+                            <?= $errors['pwd-not-identical'] ?>
+                        </span>
+                    <?php endif ?>
                     <br>
                     <input required type="password" class="form-control" name="password2" id="password2">
                     <?php if (isset($errors['pwd2'])) : ?>
                         <span class="my-1 text-danger">
                             <?= $errors['pwd2'] ?>
+                        </span>
+                    <?php endif ?>
+                    <?php if (isset($errors['pwd-not-identical'])) : ?>
+                        <span class="my-1 text-danger">
+                            <?= $errors['pwd-not-identical'] ?>
                         </span>
                     <?php endif ?>
                     <br>

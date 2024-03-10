@@ -7,9 +7,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="/home.php">Acceuil</a>
-                <a class="nav-link" href="#">Les citations</a>
-                <a class="nav-link" href="auteurs.php">Les philosophes</a>
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="/citations.php">Les citations</a>
+                <a class="nav-link" href="/auteurs.php">Les philosophes</a>
+                <?php if (isset($_SESSION['user_id'])) : ?>
+                    <p class="nav-link my-0"><?= $_SESSION['name'] ?></p>
+                <?php endif ?>
             </div>
         </div>
     </div>
