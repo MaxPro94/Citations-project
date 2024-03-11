@@ -1,7 +1,7 @@
 <?php
 require 'data/db-connect.php';
 
-header("Refresh:20");
+header("Refresh:10");
 session_start();
 $requete = $dbh->prepare("SELECT * FROM citations ORDER BY RAND() LIMIT 1");
 $requete->execute();

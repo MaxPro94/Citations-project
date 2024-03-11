@@ -2,7 +2,7 @@ let start = 0;
 let end = 100;
 let sec = 0;
 
-let step = Math.ceil(end / 20);
+let step = Math.ceil(end / 10);
 
 const bar = document.querySelector('#blips .progress-bar');
 
