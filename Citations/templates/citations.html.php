@@ -14,10 +14,13 @@
     <div class="container">
         <?php foreach ($resultats as $resultat) : ?>
             <div class="card border-dark mb-3 my-4">
-                <div class="card-header"></div>
+                <div class="card-header">
+                    <h5 class="card-title"><?= $resultat['citation'] ?></h5>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title"><?= $resultat['prenom'] . ' ' . $resultat['nom'] ?></h5>
-                    <p class="card-text"><?= $resultat['citation'] ?></p>
+                    <p class="card-text"><?= $resultat['explication'] ?></p>
+                    <br>
+                    <p class="card-text"><?= $resultat['prenom'] . ' ' . $resultat['nom'] ?></p>
                 </div>
             </div>
         <?php endforeach ?>
