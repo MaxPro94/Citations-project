@@ -17,7 +17,6 @@ if (isset($_POST['submit_login_inscription'])) {
         $pwd = $_POST['password'];
         $pwd2 = $_POST['password2'];
 
-        var_dump($pwd, $pwd2);
 
         // On peut maintenant verifier que les champs sont remplis correctements.
 
@@ -31,11 +30,11 @@ if (isset($_POST['submit_login_inscription'])) {
             $errors['pseudo'] = "Veuillez renseigner un pseudo de plus d'un caractère.";
         }
 
-        if (empty($nom) && strlen($nom) <= 1) {
+        if (empty($nom) || strlen($nom) <= 1) {
             $errors['nom'] = "Veuillez renseigner un nom de plus d'un caractère";
         }
 
-        if (empty($prenom) && strlen($prenom) <= 1) {
+        if (empty($prenom) || strlen($prenom) <= 1) {
             $errors['prenom'] = "Veuillez renseigner un prenom de plus d'un caractère";
         }
 

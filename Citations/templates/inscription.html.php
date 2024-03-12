@@ -15,8 +15,8 @@
                 <h1>Well hello buddy !</h1>
                 <form action="/inscription.php" method="POST">
                     <label for="lastname" class="form-label">Entrez votre nom :</label>
-                    <input required type="text" class="form-control" name="lastname" id="lastname" placeholder="Aurèlius">
-                    <?php if (isset($errors['nom'])) : ?>
+                    <input required type="text" class="form-control" name="lastname" id="lastname" placeholder="Aurèlius" value="">
+                    <?php if (isset($errors)) : ?>
                         <span class="my-1 text-danger">
                             <?= $errors['nom'] ?>
                         </span>
