@@ -46,6 +46,7 @@ if (isset($_POST['submit_login_connex'])) {
 
             $_SESSION['user_id'] = $utilisateur['id_utilisateur'];
             $_SESSION['name'] = $utilisateur['nom_compte'];
+            var_dump($_SESSION);
 
             header('Location: home.php');
             exit;

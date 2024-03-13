@@ -23,8 +23,10 @@
                 </div>
             </div>
             <?php foreach ($resultats_citations as $citations) : ?>
-                <div class="card border-dark mb-3 my-4">
-                    <div class="card-header"><?= $citations['citation'] ?></div>
+                <div class="card text-bg-dark mb-3 my-4">
+                    <div class="card-header">
+                        <h5 class="card-title"><?= $citations['citation'] ?></h5>
+                    </div>
                     <div class="card-body">
                         <p class="card-text"><?= $citations['explication'] ?></p>
                         <p class="card-text"><?= $resultat_auteur['nom'] ?></p>

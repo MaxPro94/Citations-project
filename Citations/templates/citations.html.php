@@ -13,14 +13,15 @@
     <?php require 'templates/inc.top.html.php' ?>
     <div class="container">
         <?php foreach ($resultats as $resultat) : ?>
-            <div class="card border-dark mb-3 my-4">
+            <div class="card text-bg-dark mb-3 my-4">
                 <div class="card-header">
-                    <h5 class="card-title"><?= $resultat['citation'] ?></h5>
+                    <h5 class="card-title"><?= $resultat['prenom'] . ' ' . $resultat['nom'] ?></h5>
+
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><?= $resultat['explication'] ?></p>
+                    <p><?= $resultat['citation'] ?></p>
                     <br>
-                    <p class="card-text"><?= $resultat['prenom'] . ' ' . $resultat['nom'] ?></p>
+                    <p class="card-text"><?= $resultat['explication'] ?></p>
                 </div>
             </div>
         <?php endforeach ?>
