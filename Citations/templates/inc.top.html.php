@@ -14,6 +14,10 @@
                 <a class="nav-link active" aria-current="page" href="/home.php">Acceuil</a>
                 <a class="nav-link" href="/citations.php">Les citations</a>
                 <a class="nav-link" href="/auteurs.php">Les philosophes</a>
+                <?php if (!isset($_SESSION['user_id'])) : ?>
+                    <a href="/inscription.php" id="hover" class="nav-link">Inscription</a>
+                    <a href="/index.php" id="hover" class="nav-link">Connexion</a>
+                <?php endif ?>
                 <?php if (isset($_SESSION['user_id'])) : ?>
                     <a class="nav-link" href="/deconnexion.php">Déconnexion</a>
                 <?php endif ?>

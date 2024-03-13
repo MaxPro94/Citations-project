@@ -2,3 +2,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#hover:hover {
+    transform: scale(1.3); /* Applique un zoom de 1.2 au survol */
+}

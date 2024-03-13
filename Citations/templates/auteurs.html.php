@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Les philosophes</title>
-    <link rel="stylesheet" href="data/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -32,7 +32,7 @@
                             <br>
                             <br>
                             <p class="card-text"><small class="text-body-secondary"><?= $resultat['date_start'] . ' ' . '/' . ' ' . $resultat['date_end'] ?></small></p>
-                            <a href="details_auteur.php?id_auteur=<?= $resultat['id_auteur'] ?>" class="btn btn-primary">Détails</a>
+                            <a href="details_auteur.php?id=<?= $resultat['id_auteur'] ?>" class="btn btn-primary">Détails</a>
                         </div>
                     </div>
                 </div>

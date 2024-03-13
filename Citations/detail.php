@@ -16,6 +16,15 @@ if (isset($_GET['id'])) {
         ':id_auteur' => $_GET['id']
     ]);
     $resultats_citations = $requete_citations->fetchAll();
-
-    require 'templates/details.html.php';
 }
+
+if (isset($_GET['id_citation'])) {
+    $requete = $dbh->prepare('SELECT * FROM citations WHERE id_citations = :id_citation');
+    $requete->execute([
+        ':id_citation' => $_GET['id_citation']
+    ]);
+
+
+    $resultat_citation = $requete->fetch();
+}
+require 'templates/details.html.php';

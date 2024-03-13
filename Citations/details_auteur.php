@@ -1,11 +1,11 @@
 <?php
 
-if (isset($_GET['id_auteur'])) {
+if (isset($_GET['id'])) {
     require 'data/db-connect.php';
 
     $requete = $dbh->prepare('SELECT * FROM auteur WHERE id_auteur = :id_auteur');
     $requete->execute([
-        'id_auteur' => $_GET['id_auteur']
+        'id_auteur' => $_GET['id']
     ]);
 
     $resultatAuteur = $requete->fetch();
@@ -13,7 +13,7 @@ if (isset($_GET['id_auteur'])) {
 
     $requete = $dbh->prepare('SELECT * FROM citations WHERE id_auteur = :id_auteur');
     $requete->execute([
-        'id_auteur' => $_GET['id_auteur']
+        'id_auteur' => $_GET['id']
     ]);
 
     $resultatCitations = $requete->fetchAll();
