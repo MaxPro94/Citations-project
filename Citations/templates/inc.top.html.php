@@ -19,8 +19,12 @@
                     <a href="/index.php" id="hover" class="nav-link">Connexion</a>
                 <?php endif ?>
                 <?php if (isset($_SESSION['user_id'])) : ?>
+                    <a class="nav-link" href="/compte.php">Mon compte</a>
+                <?php endif ?>
+                <?php if (isset($_SESSION['user_id'])) : ?>
                     <a class="nav-link" href="/deconnexion.php">Déconnexion</a>
                 <?php endif ?>
+
             </div>
         </div>
     </div>

@@ -1,0 +1,9 @@
+1) Finir la page du compte
+
+2) Finir la page modification du compte
+
+3) Avec un type de compte particulier pouvoir ajouter des citations
+
+4) Pouvoir ajouter des citations en favori et les voirs sur la page compte
+
+5) Envoie d'un e-mail de confirmation
