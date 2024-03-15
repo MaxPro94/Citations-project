@@ -15,6 +15,7 @@
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-12  my-4">
                 <h1>Welcome home <?= $prenom . " " . $nom ?></h1>
+                <h3>Vous faites parti des <?= $droit ?></h3>
                 <div class="my-4">
                     <form action="/modification_compte.php" method="POST">
                         <button name="button_modif" class="btn btn-primary" type="submit">Modifier mon compte</button>

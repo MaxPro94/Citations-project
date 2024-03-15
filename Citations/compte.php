@@ -21,6 +21,16 @@ if (isset($_SESSION['user_id'])) {
     $droit = $resultat['id_droit'];
     $pwd = $resultat['motdepasse'];
 
+    if ($droit === 1) {
+        $droit = "Bellatores (Les nobles (prince, seigneurs, chevaliers)";
+    }
+    if ($droit === 2) {
+        $droit = "Laboratores (Les paysans, les tenanciers/vilains)";
+    }
+    if ($droit === 3) {
+        $droit = "Oratores (Hommes pieux, le clergé)";
+    }
+
 
     require 'templates/compte.html.php';
 }

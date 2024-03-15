@@ -83,6 +83,9 @@ if (isset($_POST['submit_login_inscription'])) {
 
                 if ($dbh->lastInsertID()) { // Si la base de donnée nous retourne bien un id (Le dernier créer) donc le création du compte a bien été effectuer.
 
+                    session_start();
+                    $_SESSION['user_id'] = $utilisateur['id_utilisateur'];
+                    $_SESSION['name'] = $utilisateur['nom_compte'];
                     // Nous redirigons l'utilisateur sur la page d'acceuil.
                     header('Location: home.php');
                     exit;

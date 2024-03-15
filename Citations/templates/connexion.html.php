@@ -29,7 +29,7 @@
                         <?php endif ?>
                         <br>
                         <button type="submit" class="btn btn-primary" name="submit_login_connex">Connexion</button>
-                        <a class="btn btn-primary" href="inscription.php">Vous n'avez pas de compte ?</a>
+                        <a class="btn btn-primary my-2" href="inscription.php">Vous n'avez pas de compte ?</a>
                         <a class="btn btn-primary my-2" href="home.php">Continuer en tant que visiteur.</a>
                     </form>
 
