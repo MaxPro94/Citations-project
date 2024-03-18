@@ -13,12 +13,17 @@
     <?php require 'inc.top.html.php' ?>
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-12  my-4">
-                <h1>Welcome home <?= $prenom . " " . $nom ?></h1>
-                <h3>Vous faites parti des <?= $droit ?></h3>
+            <div class="col-12  my-3">
+                <h1 class="text-center">Welcome home <?= $prenom . " " . $nom ?></h1>
+                <h4 class="mt-5">Votre image de profil :</h4>
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="img-fluid img-thumbnail my-4" src="<?= $img ?>" alt="">
+                    <p class="text-center p-4"><?= $resultat_img['description'] ?></p>
+                </div>
+                <h3 class="mt-5">Vous faites parti des <?= $droit ?></h3>
                 <div class="my-4">
                     <form action="/modification_compte.php" method="POST">
-                        <button name="button_modif" class="btn btn-primary" type="submit">Modifier mon compte</button>
+                        <button name="button_modif" class="btn btn-warning" type="submit">Modifier mon compte</button>
                     </form>
                 </div>
             </div>

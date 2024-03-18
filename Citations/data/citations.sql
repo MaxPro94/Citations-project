@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 13 mars 2024 à 17:11
+-- Généré le : lun. 18 mars 2024 à 15:44
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -338,6 +338,38 @@ INSERT INTO `droits` (`id_droit`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `image_user`
+--
+
+DROP TABLE IF EXISTS `image_user`;
+CREATE TABLE IF NOT EXISTS `image_user` (
+  `id_img` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `dates` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_img`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `image_user`
+--
+
+INSERT INTO `image_user` (`id_img`, `nom`, `img`, `description`, `dates`) VALUES
+(1, 'Hercule de Farnèse', 'assets/img/profil/p1.jfif', 'Hercule de Farnèse est une sculpture ancienne qui illustre la force et la détermination du héros mythologique Héraclès. Cette représentation met en avant des valeurs telles que la puissance, le courage et la lutte contre le mal, faisant de Héraclès un symbole de bravoure et de vertu.', ' IIe siècle après J.-C.'),
+(2, 'Antoine de Saint-Exupéry', 'assets/img/profil/p2.jfif', ' Antoine de Saint-Exupéry, célèbre écrivain et aviateur français, est surtout connu pour son chef-d\'œuvre \"Le Petit Prince\", un conte poétique qui a captivé des lecteurs du monde entier. Son écriture, imprégnée de ses expériences en tant que pilote, explore des thèmes tels que l\'aventure, la solitude et la condition humaine.', '29 juin 1900 / 31 juillet 1944'),
+(3, 'Jean Valjean', 'assets/img/profil/p3.jfif', ' Jean Valjean, personnage central des \"Misérables\" de Victor Hugo, incarne des valeurs de rédemption, de compassion et de justice. Ancien forçat, il cherche à se racheter en aidant les plus démunis et en luttant pour la dignité humaine. Son parcours de transformation et son engagement envers le bien en font un héros emblématique de la littérature.', ' \"Les Misérables\" de Victor Hugo, publié en 1862.'),
+(4, 'Godefroi de bouillon', 'assets/img/profil/p4.jfif', 'Godefroi de Bouillon était un noble et chef militaire du Moyen Âge, célèbre pour sa piété, son courage et son dévouement à sa foi chrétienne. Il incarnait les valeurs de la chevalerie médiévale, prônant l\'honneur, la justice et la protection des faibles. Sa clémence envers les vaincus et son désir de libérer Jérusalem témoignent de sa compassion et de son engagement religieux. Son héritage demeure un symbole de courage et de dévouement pour de nombreuses générations.', '1060 / 1100'),
+(5, 'Achille', 'assets/img/profil/p5.jfif', 'Achille, héros légendaire de la mythologie grecque, incarne des principes de courage, de bravoure et de loyauté. Son engagement envers ses compagnons d\'armes et son désir de gloire sont remarquables. Sa quête de renommée sur le champ de bataille reflète son sens de l\'honneur et sa détermination à prouver sa valeur. Malgré son destin tragique, sa bravoure inspire admiration et respect, faisant de lui un symbole intemporel de la force et du courage.', 'Mythologie'),
+(6, 'Doolin de Maience', 'assets/img/profil/p6.jfif', 'Doolin de Maience est un chevalier des chansons de geste, réputé pour sa vaillance, sa loyauté et son sens de l\'honneur. Ses aventures épiques et ses exploits au combat le caractérisent comme un héros de la chevalerie médiévale, représentant les valeurs de courage et de dévouement.', 'Légende des chansons de geste'),
+(7, 'Napoléon Bonaparte', 'assets/img/profil/p7.jfif', 'Napoléon Bonaparte était un général et empereur français du XIXe siècle, célèbre pour ses compétences militaires exceptionnelles. Il a mené de nombreuses campagnes victorieuses à travers l\'Europe, révolutionnant les tactiques militaires et établissant un vaste empire. Ses victoires à Austerlitz, Iéna et d\'autres batailles ont marqué l\'histoire militaire. Malgré quelques revers, son héritage en tant que stratège reste indéniable.', '15 août 1769 / 5 mai 1821'),
+(8, 'Jean Moulin', 'assets/img/profil/p8.jfif', 'Jean Moulin, figure majeure de la Résistance française pendant la Seconde Guerre mondiale, était connu pour son courage, son engagement et ses principes indéfectibles. Il a uni les mouvements de résistance, refusé de céder à l\'oppression nazie malgré la torture, et est devenu un symbole de la lutte pour la liberté et la dignité humaine.', ' 20 juin 1899 / 8 juillet 1943'),
+(9, 'Jeanne d\'Arc', 'assets/img/profil/p9.jfif', 'Jeanne d\'Arc, la Pucelle d\'Orléans, est une figure emblématique de l\'histoire française, reconnue pour sa bravoure, sa foi et son patriotisme. Elle a joué un rôle crucial dans la guerre de Cent Ans, guidée par des visions divines, et a contribué à plusieurs victoires françaises. Son dévouement, sa confiance et son courage en font un symbole intemporel de résistance et de conviction.', '1412 / 30 mai 1431'),
+(10, 'Le chevalier Bayard', 'assets/img/profil/p10.jfif', ' Le chevalier Bayard, figure emblématique de la chevalerie française, est célèbre pour son courage, sa loyauté et son code d\'honneur sans faille. Surnommé \"le chevalier sans peur et sans reproche\", il incarne les valeurs de bravoure, de loyauté et d\'intégrité.', '1473 / 1524');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `nationalité`
 --
 
@@ -372,17 +404,19 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `motdepasse` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nom_compte` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `img_profil` int NOT NULL,
   `id_droit` int NOT NULL,
   PRIMARY KEY (`id_utilisateur`),
-  KEY `id_droit` (`id_droit`)
+  KEY `id_droit` (`id_droit`),
+  KEY `fk_img_profil` (`img_profil`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `mail`, `motdepasse`, `nom_compte`, `id_droit`) VALUES
-(11, 'Thomé', 'Maxime', 'thomemaximepro@gmail.com', '$2y$10$T//xZUh3tsc.QiZI56xNoOSPcdgsJF88cowEnSwOoQ1gAO.XD.qN6', 'Le GOAT', 1);
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `mail`, `motdepasse`, `nom_compte`, `img_profil`, `id_droit`) VALUES
+(11, 'Thomé', 'Maxime', 'thomemaximepro@gmail.com', '$2y$10$T//xZUh3tsc.QiZI56xNoOSPcdgsJF88cowEnSwOoQ1gAO.XD.qN6', 'Maximus', 7, 1);
 
 --
 -- Contraintes pour les tables déchargées
@@ -412,6 +446,7 @@ ALTER TABLE `citations`
 -- Contraintes pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
+  ADD CONSTRAINT `fk_img_profil` FOREIGN KEY (`img_profil`) REFERENCES `image_user` (`id_img`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `utilisateur_ibfk_1` FOREIGN KEY (`id_droit`) REFERENCES `droits` (`id_droit`);
 COMMIT;
 

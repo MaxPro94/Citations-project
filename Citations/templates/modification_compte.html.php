@@ -13,14 +13,6 @@
 <body>
     <?php require 'inc.top.html.php' ?>
     <div class="container">
-        <div class="row">
-            <h2 class="text-center my-3">Modifier sont image de profil</h2>
-            <div class="col mx-5">
-                <?php foreach ($resultat_img_profil as $resultat) : ?>
-                    <img src="<?= $resultat['img'] ?>" class="img-fluid img-thumbnail" alt="...">
-                <?php endforeach; ?>
-            </div>
-        </div>
         <div class="row d-flex justify-content-center my-5">
             <h2 class="text-center my-3">Modification des informations du compte</h2>
             <div class="col-6">
@@ -68,11 +60,30 @@
                         <?php endif; ?>
                         <button name="submit_modif_pwd" class="btn btn-warning w-100 my-3" type="submit">Modifier le mot de passe</button>
                     </div>
-
                 </form>
             </div>
         </div>
+        <div class="row">
+            <h2 class="text-center mb-4">Modification de l'image de profil</h2>
+            <?php foreach ($resultat_img_profil as $resultat) : ?>
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div id="card-home" class="card h-100" data-aos="">
+                        <img src="<?= $resultat['img'] ?>" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <h3><?= $resultat['nom'] ?></h3>
+                            <p class="text-center mt-4"><?= $resultat['description'] ?></p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <form method="POST">
+                                <button class="btn btn-warning" name="submit_modif_img" value="<?= $resultat['id_img'] ?>">Choisir</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
+
     <?php require 'inc.bottom.html.php' ?>
 </body>
 

@@ -164,4 +164,12 @@ if (isset($_POST['submit_modif_pwd'])) {
     }
 }
 
+if (isset($_POST['submit_modif_img'])) {
+    $requete = $dbh->prepare("UPDATE utilisateur SET img_profil = :img_profil WHERE id_utilisateur = :id_utilisateur");
+    $requete->execute([
+        'img_profil' => $_POST['submit_modif_img'],
+        'id_utilisateur' => $_SESSION['user_id']
+    ]);
+}
+
 require 'templates/modification_compte.html.php';

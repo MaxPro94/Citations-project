@@ -21,14 +21,23 @@ if (isset($_SESSION['user_id'])) {
     $droit = $resultat['id_droit'];
     $pwd = $resultat['motdepasse'];
 
+
+    $requete_img = $dbh->prepare("SELECT * FROM image_user WHERE id_img = :id_img");
+    $requete_img->execute([
+        'id_img' => $resultat['img_profil']
+    ]);
+    $resultat_img = $requete_img->fetch();
+
+    $img = $resultat_img['img'];
+
     if ($droit === 1) {
-        $droit = "Bellatores (Les nobles (prince, seigneurs, chevaliers)";
+        $droit = "Bellatores (Les nobles (prince, seigneurs, chevaliers)).";
     }
     if ($droit === 2) {
-        $droit = "Laboratores (Les paysans, les tenanciers/vilains)";
+        $droit = "Laboratores (Les paysans, les tenanciers/vilains).";
     }
     if ($droit === 3) {
-        $droit = "Oratores (Hommes pieux, le clergé)";
+        $droit = "Oratores (Hommes pieux, le clergé).";
     }
 
 

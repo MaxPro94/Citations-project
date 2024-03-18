@@ -46,7 +46,17 @@ if (isset($_POST['submit_login_connex'])) {
 
             $_SESSION['user_id'] = $utilisateur['id_utilisateur'];
             $_SESSION['name'] = $utilisateur['nom_compte'];
-            var_dump($_SESSION);
+
+
+            $requete = $dbh->prepare("SELECT * FROM image_user WHERE id_img = :id_img");
+            $requete->execute([
+                'id_img' => $utilisateur['img_profil']
+            ]);
+
+            $resultat_img = $requete->fetch();
+
+            $_SESSION['img'] = $resultat_img['img'];
+
 
             header('Location: home.php');
             exit;
